@@ -1,0 +1,244 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body{
+	background: linear-gradient(to left, lightblue, transparent);
+}
+
+body>div{
+	font-size: 0;
+	margin: 100px 300px;
+}
+
+body>div>div{
+	display: inline-block;
+	font-size: 36px;
+}
+
+.bolt{
+	position: relative;
+	width: 400px;
+}
+
+.hat>div{
+	height: 120px;
+	width: 100px;
+	background: silver;
+}
+
+.hat-top{
+	border-radius: 70% 0 0 0 / 100% 0 0 0;
+}
+
+.bolt .hat-center{
+	height: 20px;
+	width: 80px;
+	margin: 0 0 0 20px;
+}
+
+.bolt .hat-bottom{
+	border-radius: 0 0 0 70% / 0 0 0 100%;
+	position: relative;
+}
+
+.bolt .straight{
+	height: 100px;
+	width: 300px;
+	margin: 0;
+	background: silver;
+	position: absolute;
+	left: 100px;
+	top: 50%;
+	transform: translate(0, -50%);
+	overflow: hidden;
+}
+
+.straight:before{
+	content: "";
+	height: 100px;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	right: 20px;
+	background: repeating-linear-gradient( to right, grey, grey 10px, transparent 10px, transparent 25px);
+	transform: skew(45deg);
+}
+
+.bolt:hover .hat-center{	
+	animation: movehat .5s linear infinite alternate; 	
+}
+
+@keyframes movehat {
+	0% {height:20px; width:80px;}
+	50% {width:100px; margin:0;}
+	100% {height:20px; width:80px;}
+}
+
+.bolt:hover .straight:before{
+	animation: traffic .5s ease infinite alternate;
+}
+
+@keyframes traffic {
+	from{background: repeating-linear-gradient( to right, grey, grey 10px, transparent 10px, transparent 25px);}
+	to{background: repeating-linear-gradient( to right, grey 10px, grey 20px, transparent 20px, transparent 35px);}
+}
+
+.screw{
+	margin: 0 0 0 100px;
+	height: 240px;
+	width: 240px;
+	padding: 10px 10px 10px 75px;
+}
+
+.center{
+	height: 120px;
+	width: 120px;
+	background: radial-gradient(circle, transparent 70%, grey 70%, silver 75%);
+	border-top: 55px solid silver;
+	border-bottom: 55px solid silver;
+	border-left: 20px solid silver;
+	border-right: 20px solid silver;
+	position: relative;	
+}
+
+.center:before{
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	top: -55px;
+	left: -75px;
+	border-top: 115px solid transparent;
+	border-right: 55px solid silver;
+	border-bottom: 115px solid transparent;
+}
+
+.center:after{
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	top: -55px;
+	right: -75px;
+	border-top: 115px solid transparent;
+	border-left: 55px solid silver;
+	border-bottom: 115px solid transparent;
+}
+
+.screw:hover .center{	
+	animation: move 2s ease infinite alternate;
+}
+
+@keyframes move {
+	0%{transform: rotate(-90deg);}
+	50%{transform: rotate(-180deg);}
+	100%{transform: rotate(-360deg);}
+}
+
+.home{
+	width: 500px;
+	height: 500px;
+	padding: 100px;
+	margin: 100px 400px;
+}
+
+.key{
+	transform: rotate(30deg);
+	font-size: 0;
+}
+
+.key>div{
+	display: inline-block;
+	font-size: 36px;
+}
+
+.head{
+	height: 0;
+	width: 80px;
+    border-left: 25px solid transparent;
+	border-top: 50px solid silver;
+	border-bottom: 50px solid silver;
+	position: relative;
+}
+
+.head:before{
+	content: "";
+	height: 70px;
+	width: 200px;
+	position: absolute;
+	top: -115px;
+	right: 0;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	background: silver;
+}
+
+.head:after{
+	content:"";
+	height: 70px;
+	width: 200px;
+	position: absolute;
+	bottom: -115px;
+	right: 0;
+	border-radius: 0 0 50% 50% / 0 0 100% 100%;
+	background: silver;
+}
+
+.holder{
+	position: absolute;
+	left: 25px;
+	top: 0;
+    height: 100px;
+	width: 400px;
+	border-radius: 0 20% 20% 0 / 0 40% 40% 0;
+	background: radial-gradient(circle at 90% 50%, transparent 20px, grey 20px, grey 21px, silver 21px);
+}
+
+.home:hover .key{
+	animation: movekey 2s ease infinite alternate;
+}
+
+@keyframes movekey {
+	from {transform: rotate(45deg) scale(0.8);}
+	to {transform: rotate(-10deg) scale(1.2);}
+}
